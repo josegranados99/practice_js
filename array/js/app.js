@@ -1,8 +1,5 @@
-var items = localStorage.getItem('itemList')
+var items = localStorage.getItem('itemsList')
 items = items ? items.split(",") : [];
-
-showItems();
-
 
 const showItems = () => {
   document.getElementById("nameItem").value = "";
@@ -21,6 +18,7 @@ const showItems = () => {
   localStorage.setItem('itemsList', items);
 }
 
+showItems();
 
 const addItem = () => {
   let item = document.getElementById("nameItem").value;
@@ -37,5 +35,6 @@ const addItem = () => {
 }
 
 const deleteItem = (item) => {
+  items.splice(item, 1)
   showItems();
 }
